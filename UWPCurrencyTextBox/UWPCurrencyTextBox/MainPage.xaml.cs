@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,13 @@ namespace UWPCurrencyTextBox
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = (string)((ComboBox)sender).SelectedItem;
+            await Task.Delay(100);
+            CtxExample.Value = 0;
         }
     }
 }
