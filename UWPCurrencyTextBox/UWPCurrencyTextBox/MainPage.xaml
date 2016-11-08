@@ -8,6 +8,18 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel Padding="12">
+            <local:CurrencyTextBox x:Name="CtxExample" Header="Example of CurrencyTextBox" Value="{Binding ActualValue}" MaxWidth="250" Width="196" HorizontalAlignment="Left"/>
+            <TextBlock Margin="0,8,0,0">
+                <Run Text="Actual value: "/>
+                <Run Text="{Binding Path=Value, ElementName=CtxExample}"/>
+            </TextBlock>
+            <ComboBox Header="Application language" Margin="0,16,0,0" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged" Width="196">
+                <x:String>en-US</x:String>
+                <x:String>pt-BR</x:String>
+                <x:String>es-ES</x:String>
+            </ComboBox>
+        </StackPanel>
     </Grid>
+    
 </Page>
